@@ -31,20 +31,21 @@ const AllAuthors = () => {
 
     return (
         <div>
+            <h1>Favorite authors</h1>
             <Link to="/new">Add an author</Link>
             <h5 style={{color: "#007BFF"}}>We have quotes by: </h5>
-            <table>
+            <table className="table-bordered">
                 <tr>
-                    <th>Author</th>
-                    <th>Actions available</th>
+                    <th style={{padding: "10px"}}>Author</th>
+                    <th style={{padding: "10px"}}>Actions available</th>
                 </tr>
                 {
                     authors.map((author, i) =>
-                        <tr>
-                            <td>{author.name}</td>
+                        <tr key={ i }>
+                            <td style={{color: "#007BFF", padding: "10px"}}>{author.name}</td>
                             <td>
-                                <Link to={`/edit/${author._id}`}><button className="btn btn-primary">Edit</button></Link>
-                                <button className="btn btn-danger" onClick={e => deleteHandler(e, author._id)}>Delete</button>
+                                <Link to={`/edit/${author._id}`} style={{padding: "10px"}}><button className="btn btn-primary">Edit</button></Link>
+                                <button  className="btn btn-danger m-2" onClick={e => deleteHandler(e, author._id)}>Delete</button>
                             </td>
                         </tr>
                     )

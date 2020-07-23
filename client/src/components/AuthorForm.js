@@ -18,7 +18,7 @@ const AuthorForm = props => {
                     if (response.data.message === "success")
                         setNewAuthor(response.data.results)
                     else
-                        navigate("/")
+                        navigate("/wrongpage")
                 })
         }
     }, [])
@@ -76,6 +76,7 @@ const AuthorForm = props => {
 
     return (
         <div>
+            <h1>Favorite authors</h1>
             <Link to="/">Home</Link>
             {
                 action === "edit" ?
@@ -91,9 +92,9 @@ const AuthorForm = props => {
                     ''
                 }
                 <label htmlFor="name" >Name: </label>
-                <input type="text" name="name" className="col-sm-3 form-control" onChange={ changeHandler } value={newAuthor.name}/>
-                <button className="btn btn-secondary" onClick={ e => navigate("/")}>Cancel</button>
-                <input className="btn btn-primary" type="submit" value="Submit"/>
+                <input type="text" name="name" className="col-sm-2 form-control m-2" onChange={ changeHandler } value={newAuthor.name}/>
+                <button className="col-sm-1 btn btn-secondary m-1" onClick={ e => navigate("/")}>Cancel</button>
+                <input className="col-sm-1 btn btn-primary m-1" type="submit" value="Submit"/>
             </form>
             
         </div>
